@@ -26,15 +26,21 @@ function loadImages(){
     mines.push(new Mine(100, 100, 50, 50))
 
 class Mine{
-    constructor(x, y, width, height){
+    constructor(x, y, width, height, mine){
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
+    this.mine = IMAGES.mine;
+    }
+    someMine(){
+        this.x = Math.random() * 100;
+        this.y = Math.random() * 100;
+        this.width = Math.random() * 100;
+        this.height = Math.random() * 100;
+        draw();
     }
     draw(){
         ctx.drawImage(IMAGES.mine, this.x, this.y, this.width, this.height);
     }
 }
-
-Mine.draw(100,50,30,30);
