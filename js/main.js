@@ -20,9 +20,21 @@ function loadImages(){
         IMAGES[img_name] = loadImage(`../img/${img_name}.png`);
     }
     }
-function drawPlayer(){
-    ctx.fillStyle = `rgb(82,5,10)`;
-    ctx.fillRect(20, 20, 100, 100);
+
+    let mines = []
+
+    mines.push(new Mine(100, 100, 50, 50))
+
+class Mine{
+    constructor(x, y, width, height){
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    }
+    draw(){
+        ctx.drawImage(IMAGES.mine, this.x, this.y, this.width, this.height);
+    }
 }
 
-drawPlayer();
+Mine.draw(100,50,30,30);
