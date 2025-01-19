@@ -9,3 +9,4 @@ let submarine = null;
 
 let canvasWidth = 1200;
 let canvasHeight = 600;
+

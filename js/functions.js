@@ -1,3 +1,3 @@
-function generateMines() {}
-
+function generateMines() {
+}
 function checkCollisions() {}
