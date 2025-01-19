@@ -1,0 +1,3 @@
+function generateMines() {}
+
+function checkCollisions() {}
