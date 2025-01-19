@@ -11,7 +11,7 @@ const IMAGES = {
     mine:null,
     background:null,
 };
-function loadImages(){
+function preload(){
     loadImages();
 }
 function loadImages(){
@@ -21,7 +21,7 @@ function loadImages(){
     }
     }
 
-    let mines = []
+    /*let mines = []
 
     mines.push(new Mine(100, 100, 50, 50))
 
@@ -43,4 +43,25 @@ class Mine{
     draw(){
         ctx.drawImage(IMAGES.mine, this.x, this.y, this.width, this.height);
     }
+}
+    */
+function setup(){
+class Submarine{
+    constructor(x,y,height,width,player){
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.width = width;
+        this.player_img = player_img;
+}
+    displaySubmarine(){
+        ctx.drawImage(this.x, this.y, this.width, this.height,IMAGES.submarine);
+    }
+}
+}
+function draw(){
+
+    let submarine1 = new Submarine(100, 100, 50, 50, `IMAGES.submarine`);
+
+    submarine1.displaySubmarine();
 }
