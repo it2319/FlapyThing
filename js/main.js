@@ -32,3 +32,12 @@ function draw() {
   submarine.draw();
   
 }
+
+function mouseClicked() {
+    if (mouseClicked == true){
+      submarine.update();
+    }
+    else {
+      submarine.update();
+    }
+}
