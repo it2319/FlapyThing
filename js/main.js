@@ -2,6 +2,8 @@
 const canvas = document.getElementById("canvas");
 const c = canvas.getContext("2d");
 
+
+
 function preload() {
   // load images
   for (let i = 0; i < Object.keys(IMAGES).length; i++) {
