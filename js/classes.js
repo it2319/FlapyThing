@@ -4,8 +4,8 @@ class Submarine {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.gravity = 70;
-    this.speed = 110;
+    this.gravity = 125;
+    this.speed = 125;
 
 
     this.img = IMAGES["submarine"];
