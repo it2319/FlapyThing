@@ -17,7 +17,7 @@ function setup() {
 
   // Submarine
   
-  submarine = new Submarine(80, canvasHeight / 2, 160, 80);
+  submarine = new Submarine(120, canvasHeight / 2, 160, 80);
   background = new Background();
 
 }
