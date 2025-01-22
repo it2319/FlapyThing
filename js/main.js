@@ -23,9 +23,28 @@ function setup() {
 }
 
 function draw() {
-  frametime = deltaTime / 1000;
-  background.update();
-  submarine.draw();
-  
+  if (gamePlaying == true){
+    frametime = deltaTime / 1000;
+    background.update();
+    submarine.update();
+  }else if (gamePlaying == false){
+    background.draw();
+    fill(255);
+    textSize(50);
+    text("Click to start", canvasWidth/2 - 150, canvasHeight/2);
+  }
 }
 
+function mousePressed() {
+  if (gamePlaying == true){
+    Click = true;
+    }
+}
+function mouseReleased(){
+    Click = false;
+}
+function mouseClicked(){
+  if (gamePlaying == false){
+    gamePlaying = true;
+  }
+}

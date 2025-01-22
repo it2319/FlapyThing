@@ -4,41 +4,32 @@ class Submarine {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.boost = 30;
     this.gravity = 70;
-    this.yVelocity = 0;
-    this.speed = 15;
+    this.speed = 110;
 
 
     this.img = IMAGES["submarine"];
   }
 
   update() {
-    this.input();
-    this.applyGravity();
     this.move();
-    this.hitbox();
+    this.draw();
+  }
+  move(){
+      if (Click == true) {
+          this.y -= this.speed * frametime;
+      } else {
+          this.y += this.gravity * frametime; 
+      }
+
+
+      if (this.y + this.height / 2 > canvasHeight) {
+          this.y = canvasHeight - this.height / 2;
+      } else if (this.y - this.height / 2 < 0) {
+          this.y = this.height / 2;
+      }
   }
 
-  input() {
-    if (mouseClicked == true) {
-    this.yVelocity = this.boost;
-  }
-}
-  applyGravity() {
-    this.yVelocity -= this.gravity * frametime;
-  // Update the submarine's y position based on yVelocity
-    this.y += this.yVelocity * frametime;
-
-  // Optional: Prevent the submarine from going out of bounds
-    if (this.y + this.height / 2 > canvasHeight) {
-        this.y = canvasHeight - this.height / 2;
-        this.yVelocity = 0; // Stop falling if it hits the bottom
-    } else if (this.y - this.height / 2 < 0) {
-        this.y = this.height / 2;
-        this.yVelocity = 0; // Stop moving up if it hits the top
-    }
-}
   draw() {
     imageMode(CENTER);
     image(this.img, this.x, this.y, this.width, this.height);
@@ -72,8 +63,10 @@ class Background{
   }
 
   move(){
+    if (gamePlaying){
     this.x -= this.speed * frametime
   }
+}
 
   draw(){
     imageMode(CORNER);
