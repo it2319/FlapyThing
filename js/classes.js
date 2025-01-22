@@ -31,8 +31,8 @@ class Submarine {
     this.y += this.yVelocity * frametime;
 
   // Optional: Prevent the submarine from going out of bounds
-    if (this.y + this.height / 2 > canvasheight) {
-        this.y = canvasheight - this.height / 2;
+    if (this.y + this.height / 2 > canvasHeight) {
+        this.y = canvasHeight - this.height / 2;
         this.yVelocity = 0; // Stop falling if it hits the bottom
     } else if (this.y - this.height / 2 < 0) {
         this.y = this.height / 2;
@@ -76,9 +76,10 @@ class Background{
   }
 
   draw(){
-    image(this.img, this.x, 0, canvaswidth, canvasheight);
-    image(this.img, this.x + canvaswidth, 0, canvaswidth, canvasheight);
-    if(this.x <= -canvaswidth){
+    imageMode(CORNER);
+    image(this.img, this.x, 0, canvasWidth, canvasHeight);
+    image(this.img, this.x + canvasWidth, 0, canvasWidth, canvasHeight);
+    if(this.x <= -canvasWidth){
       this.x = 0;
     }
   }

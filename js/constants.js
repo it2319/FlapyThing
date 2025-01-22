@@ -10,5 +10,4 @@ let submarine = null;
 let canvasWidth = 1200;
 let canvasHeight = 600;
 
-let gameOver = false;
-let frametime = Date.now();
+let frametime;

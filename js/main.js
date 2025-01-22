@@ -16,25 +16,16 @@ function setup() {
   // xx
 
   // Submarine
+  
   submarine = new Submarine(80, canvasHeight / 2, 160, 80);
-  background = new Background(0, 0, canvasWidth, canvasHeight);
+  background = new Background();
 
 }
 
 function draw() {
-
-    imageMode(CORNER);
-    image(IMAGES["background"], 0, 0, canvasWidth, canvasHeight);
-
-  submarine.draw();
+  frametime = deltaTime / 1000;
   background.update();
+  submarine.draw();
+  
 }
 
-function mouseClicked() {
-    if (mouseClicked == true){
-      submarine.update();
-    }
-    else {
-      submarine.update();
-    }
-}
