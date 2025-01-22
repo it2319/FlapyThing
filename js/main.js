@@ -1,8 +1,4 @@
-// !!! www.remove.bg/
-const canvas = document.getElementById("canvas");
-const c = canvas.getContext("2d");
-
-
+// !!! www.remove.bg !!!
 
 function preload() {
   // load images
@@ -21,6 +17,7 @@ function setup() {
 
   // Submarine
   submarine = new Submarine(80, canvasHeight / 2, 160, 80);
+  background = new Background(0, 0, canvasWidth, canvasHeight);
 
 }
 
@@ -30,7 +27,7 @@ function draw() {
     image(IMAGES["background"], 0, 0, canvasWidth, canvasHeight);
 
   submarine.draw();
-  
+  background.update();
 }
 
 function mouseClicked() {

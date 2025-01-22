@@ -76,8 +76,8 @@ class Background{
   }
 
   draw(){
-    c.drawImage(this.img, this.x, 0, canvaswidth, canvasheight);
-    c.drawImage(this.img, this.x + canvaswidth, 0, canvaswidth, canvasheight);
+    image(this.img, this.x, 0, canvaswidth, canvasheight);
+    image(this.img, this.x + canvaswidth, 0, canvaswidth, canvasheight);
     if(this.x <= -canvaswidth){
       this.x = 0;
     }
