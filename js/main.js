@@ -4,7 +4,7 @@ function preload() {
   // load images
   for (let i = 0; i < Object.keys(IMAGES).length; i++) {
     img_name = Object.keys(IMAGES)[i];
-    IMAGES[img_name] = loadImage(`../img/${img_name}.png`);
+    IMAGES[img_name] = loadImage(`/img/${img_name}.png`);
   }
 }
 
@@ -32,6 +32,7 @@ function draw() {
     fill(255);
     textSize(50);
     text("Click to start", canvasWidth/2 - 150, canvasHeight/2);
+    text("Hold mouse to rise", canvasWidth/2 - 220, canvasHeight/2 + 50);
   }
 }
 
