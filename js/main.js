@@ -4,7 +4,7 @@ function preload() {
   // load images
   for (let i = 0; i < Object.keys(IMAGES).length; i++) {
     img_name = Object.keys(IMAGES)[i];
-    IMAGES[img_name] = loadImage(`img/${img_name}.png`);
+    IMAGES[img_name] = loadImage(`../img/${img_name}.png`);
   }
 }
 
@@ -27,6 +27,7 @@ function draw() {
     frametime = deltaTime / 1000;
     background.update();
     submarine.update();
+    mines.update();
   }else if (gamePlaying == false){
     background.draw();
     fill(255);

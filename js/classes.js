@@ -14,6 +14,7 @@ class Submarine {
   update() {
     this.move();
     this.draw();
+    //this.hitbox();
   }
   move(){
       if (Click == true) {
@@ -29,6 +30,12 @@ class Submarine {
           this.y = this.height / 2;
       }
   }
+  /*hitbox(){
+    left = this.x + 2;
+    right = this.x + this.width - 2;
+    top = this.y + 2;
+    bottom = this.y + this.height - 2;
+  }*/
 
   draw() {
     imageMode(CENTER);
@@ -45,6 +52,23 @@ class Mine {
     this.height = height;
     this.img = IMAGES["mine"];
   }
+
+  update() {
+    this.move();
+    this.draw();
+  }
+
+  move() {
+    if (gamePlaying) {
+      this.x -= 150 * frametime;
+      if (this.x + this.width / 2 < 0) {
+        this.x = canvasWidth + this.width / 2;
+        this.y = random(100, 500);
+      }
+    }
+    
+  }
+
   draw() {
     imageMode(CENTER);
     image(IMAGES.mine, this.x, this.y, this.width, this.height);
