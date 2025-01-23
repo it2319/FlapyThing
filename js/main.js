@@ -20,15 +20,16 @@ function setup() {
   submarine = new Submarine(120, canvasHeight / 2, 160, 80);
   background = new Background();
 
+  generateMines();
 }
 
 function draw() {
-  if (gamePlaying == true){
+  if (gamePlaying){
     frametime = deltaTime / 1000;
     background.update();
     submarine.update();
-    mines.update();
-  }else if (gamePlaying == false){
+    mines.forEach((mine) => mine.update());
+  }else if (!gamePlaying){
     background.draw();
     fill(255);
     textSize(50);

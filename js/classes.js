@@ -50,6 +50,7 @@ class Mine {
     this.y = y;
     this.width = width;
     this.height = height;
+    this.speed = 150;
     this.img = IMAGES["mine"];
   }
 
@@ -60,15 +61,14 @@ class Mine {
 
   move() {
     if (gamePlaying) {
-      this.x -= 150 * frametime;
-      if (this.x + this.width / 2 < 0) {
-        this.x = canvasWidth + this.width / 2;
-        this.y = random(100, 500);
-      }
-    }
-    
-  }
+      this.x -= this.speed * frametime;
 
+      if (this.x + this.width < 0) {
+        this.x = canvasWidth + random(0, 0);    // Reappear off-screen on the right
+        this.y = random(100, canvasHeight - 100); // New random y-position
+    }
+  }
+}
   draw() {
     imageMode(CENTER);
     image(IMAGES.mine, this.x, this.y, this.width, this.height);
