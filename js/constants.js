@@ -13,3 +13,4 @@ let canvasHeight = 600;
 let frametime;
 let gamePlaying = false;
 let Click = false;
+let gameOver = false;

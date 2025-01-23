@@ -24,20 +24,39 @@ function setup() {
 }
 
 function draw() {
-  if (gamePlaying){
+  if (gameOver) {
+
+    background.draw();
+    fill(255, 0, 0);
+    textSize(50);
+    textAlign(CENTER, CENTER);
+    text("Game Over", canvasWidth / 2 - 25, canvasHeight / 2 - 50);
+
+    return;
+  }
+  if (gamePlaying) {
     frametime = deltaTime / 1000;
     background.update();
     submarine.update();
     mines.forEach((mine) => mine.update());
-  }else if (!gamePlaying){
+
+    // Check for collisions
+    for (let mine of mines) {
+      if (checkCollisions(submarine, mine)) {
+        gameOver = true;
+        createRestartButton();
+        break;
+      }
+    }
+  } else {
     background.draw();
     fill(255);
     textSize(50);
-    text("Click to start", canvasWidth/2 - 150, canvasHeight/2);
-    text("Hold mouse to rise", canvasWidth/2 - 220, canvasHeight/2 + 50);
+    textAlign(CENTER, CENTER);
+    text("Click to start", canvasWidth / 2, canvasHeight / 2 - 50);
+    text("Hold mouse to rise", canvasWidth / 2, canvasHeight / 2 + 50);
   }
 }
-
 function mousePressed() {
   if (gamePlaying == true){
     Click = true;
@@ -49,5 +68,10 @@ function mouseReleased(){
 function mouseClicked(){
   if (gamePlaying == false){
     gamePlaying = true;
+  }
+}
+function keyPressed() {
+  if (gameOver && keyCode === 32) {
+    resetGame();
   }
 }

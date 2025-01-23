@@ -3,12 +3,11 @@ function generateMines() {
 
   // Define fixed x positions for the mines
   const xPositions = [
-    canvasWidth + 100,
     canvasWidth + 300,
-    canvasWidth + 500,
-    canvasWidth + 700,
-    canvasWidth + 900,
-    canvasWidth + 1100,
+    canvasWidth + 550,
+    canvasWidth + 800,
+    canvasWidth + 1050,
+    canvasWidth + 1200,
   ];
 
   for (let i = 0; i < xPositions.length; i++) {
@@ -18,6 +17,30 @@ function generateMines() {
     mines.push(new Mine(x, y, 100, 100)); // Add the mine with fixed x and random y
   }
 }
-function checkCollisions() {
+function checkCollisions(submarine,mine) {
+  const subHitbox = submarine.getHitbox();
+  const mineHitbox = mine.getHitbox();
 
+  return (
+    subHitbox.x < mineHitbox.x + mineHitbox.width &&
+    subHitbox.x + subHitbox.width > mineHitbox.x &&
+    subHitbox.y < mineHitbox.y + mineHitbox.height &&
+    subHitbox.y + subHitbox.height > mineHitbox.y
+  );
+}
+function createRestartButton() {
+  let button = createButton("Restart");
+  button.position(canvasWidth / 2 - 50, canvasHeight / 2 + 50);
+  button.mousePressed(() => {
+    button.remove(); // Remove the button
+    resetGame(); // Restart the game
+  });
+}
+
+function resetGame() {
+  gameOver = false;
+  gamePlaying = false;
+  submarine = new Submarine(120, canvasHeight / 2, 160, 80); // Reset submarine
+  generateMines(); // Regenerate mines
+  Click = false; // Reset player input
 }

@@ -14,7 +14,6 @@ class Submarine {
   update() {
     this.move();
     this.draw();
-    //this.hitbox();
   }
   move(){
       if (Click == true) {
@@ -30,16 +29,19 @@ class Submarine {
           this.y = this.height / 2;
       }
   }
-  /*hitbox(){
-    left = this.x + 2;
-    right = this.x + this.width - 2;
-    top = this.y + 2;
-    bottom = this.y + this.height - 2;
-  }*/
 
   draw() {
     imageMode(CENTER);
     image(this.img, this.x, this.y, this.width, this.height);
+  }
+  getHitbox() {
+    const hitboxPadding = 20; // Adjust this value for a smaller hitbox
+  return {
+    x: this.x - this.width / 2 + hitboxPadding,
+    y: this.y - this.height / 2 + hitboxPadding,
+    width: this.width - 2 * hitboxPadding,
+    height: this.height - 2 * hitboxPadding,
+    };
   }
 }
 
@@ -72,6 +74,15 @@ class Mine {
   draw() {
     imageMode(CENTER);
     image(IMAGES.mine, this.x, this.y, this.width, this.height);
+  }
+  getHitbox() {
+    const hitboxPadding = 15; // Adjust this value for a smaller hitbox
+  return {
+    x: this.x - this.width / 2 + hitboxPadding,
+    y: this.y - this.height / 2 + hitboxPadding,
+    width: this.width - 2 * hitboxPadding,
+    height: this.height - 2 * hitboxPadding,
+    };
   }
 }
 class Background{
