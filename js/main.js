@@ -31,6 +31,7 @@ function draw() {
     textSize(50);
     textAlign(CENTER, CENTER);
     text("Game Over", canvasWidth / 2 - 25, canvasHeight / 2 - 50);
+    createRestartButton();
 
     return;
   }

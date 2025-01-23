@@ -31,6 +31,10 @@ function checkCollisions(submarine,mine) {
 function createRestartButton() {
   let button = createButton("Restart");
   button.position(canvasWidth / 2 - 50, canvasHeight / 2 + 50);
+  
+  button.style("background-color", "black");
+  button.style("color", "red");
+  
   button.mousePressed(() => {
     button.remove(); // Remove the button
     resetGame(); // Restart the game
