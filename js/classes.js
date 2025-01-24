@@ -1,14 +1,14 @@
 class Submarine {
   constructor(x, y, width, height, boost, gravity, yVelocity,speed) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.gravity = 125;
-    this.speed = 125;
+    this.x = x;//x position
+    this.y = y;//y position
+    this.width = width;//width of the submarine
+    this.height = height;//height of the submarine
+    this.gravity = 125;//speed of the fall
+    this.speed = 125;//speed of the rise
 
 
-    this.img = IMAGES["submarine"];
+    this.img = IMAGES["submarine"];//preloaded image of submarine
   }
 
   update() {
