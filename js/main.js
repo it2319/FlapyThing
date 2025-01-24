@@ -1,4 +1,4 @@
-// !!! www.remove.bg !!!
+// !!! www.remove.bg !!! 
 
 function preload() {
   // load images
@@ -9,14 +9,9 @@ function preload() {
 }
 
 function setup() {
-  // P5 canvas
   createCanvas(canvasWidth, canvasHeight);
-
-  // Mines
-  // xx
-
-  // Submarine
   
+  // Create objects
   submarine = new Submarine(120, canvasHeight / 2, 160, 80);
   background = new Background();
 
@@ -24,7 +19,9 @@ function setup() {
 }
 
 function draw() {
+  //remove restart button
   selectAll('button').forEach(btn => btn.remove());
+  //game over
   if (gameOver) {
 
     background.draw();
@@ -36,6 +33,7 @@ function draw() {
 
     return;
   }
+  //game start
   if (gamePlaying) {
     frametime = deltaTime / 1000;
     background.update();
@@ -50,6 +48,7 @@ function draw() {
         break;
       }
     }
+    //start screen
   } else {
     background.draw();
     fill(255);
@@ -70,10 +69,5 @@ function mouseReleased(){
 function mouseClicked(){
   if (gamePlaying == false){
     gamePlaying = true;
-  }
-}
-function keyPressed() {
-  if (gameOver && keyCode === 32) {
-    resetGame();
   }
 }

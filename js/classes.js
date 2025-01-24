@@ -17,8 +17,10 @@ class Submarine {
   }
   move(){
       if (Click == true) {
+        //rise
           this.y -= this.speed * frametime;
       } else {
+        //fall
           this.y += this.gravity * frametime; 
       }
 
@@ -35,7 +37,7 @@ class Submarine {
     image(this.img, this.x, this.y, this.width, this.height);
   }
   getHitbox() {
-    const hitboxPadding = 20; // Adjust this value for a smaller hitbox
+    const hitboxPadding = 20; // make hitbox smaller
   return {
     x: this.x - this.width / 2 + hitboxPadding,
     y: this.y - this.height / 2 + hitboxPadding,
@@ -76,7 +78,7 @@ class Mine {
     image(IMAGES.mine, this.x, this.y, this.width, this.height);
   }
   getHitbox() {
-    const hitboxPadding = 15; // Adjust this value for a smaller hitbox
+    const hitboxPadding = 15; // make hitbox smaller
   return {
     x: this.x - this.width / 2 + hitboxPadding,
     y: this.y - this.height / 2 + hitboxPadding,
@@ -85,6 +87,7 @@ class Mine {
     };
   }
 }
+// creating and moving background
 class Background{
   constructor(){
     this.img = IMAGES["background"];
